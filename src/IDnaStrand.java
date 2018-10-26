@@ -3,7 +3,7 @@ import java.util.Iterator;
 /**
  * Interface for DNA/strand experiments
  * 
- * @author Owen Astrachan
+ * @author Alec Ashforth
  * @date February, 2008
  * @date October, 2011, removed cutWith and added reverse
  * @date October, 2016, removed methods that aren't used in assignment,
