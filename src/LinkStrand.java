@@ -84,7 +84,7 @@ public class LinkStrand implements IDnaStrand{
 	
 	@Override
 	public String toString() {
-		if(theNode.info == null) {
+		if(myFirst.info == null) {
 			return "";
 		}
 		Node theNode = myFirst;
