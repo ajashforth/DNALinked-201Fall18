@@ -30,28 +30,29 @@ public class LinkStrand implements IDnaStrand{
 	
 	@Override
 	public long size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return mySize;
 	}
 
 	@Override
 	public void initialize(String source) {
-		myFirst = new Node(Character.toString(source.charAt(0)));
-		myLast = new Node(Character.toString(source.charAt(source.length() - 1)));
+		myFirst = new Node(source);
+		myLast = myFirst;
 		mySize = source.length();
 		myAppends = 0;
 	}
 
 	@Override
 	public IDnaStrand getInstance(String source) {
-		// TODO Auto-generated method stub
-		return null;
+		return new LinkStrand(source);
 	}
 
 	@Override
 	public IDnaStrand append(String dna) {
-		// TODO Auto-generated method stub
-		return null;
+		myLast.next = new Node(dna);
+		myLast = myLast.next;
+		mySize = mySize + dna.length();
+		myAppends = myAppends + 1;
+		return this;
 	}
 
 	@Override
@@ -62,8 +63,7 @@ public class LinkStrand implements IDnaStrand{
 
 	@Override
 	public int getAppendCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		return myAppends;
 	}
 
 	@Override
@@ -80,6 +80,17 @@ public class LinkStrand implements IDnaStrand{
 			}
 		}
 		return list.info.charAt(dex);
+	}
+	
+	@Override
+	public String toString() {
+		Node theNode = myFirst;
+		StringBuilder linked = new StringBuilder();
+		while (theNode.info != null) {
+			linked.append(theNode.info);
+			theNode = theNode.next;
+		}
+		return linked.toString();
 	}
 
 }
