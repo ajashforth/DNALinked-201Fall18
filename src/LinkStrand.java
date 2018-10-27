@@ -90,7 +90,9 @@ public class LinkStrand implements IDnaStrand{
 			linked.append(theNode.info);
 			theNode = theNode.next;
 		}
-		linked.append(theNode.info);
+		if(theNode.info != null) {
+			linked.append(theNode.info);
+		}
 		return linked.toString();
 	}
 
