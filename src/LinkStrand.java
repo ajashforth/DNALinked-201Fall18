@@ -84,16 +84,16 @@ public class LinkStrand implements IDnaStrand{
 	
 	@Override
 	public String toString() {
-		if(myFirst.info == null) {
+		if(myFirst == null) {
 			return "";
 		}
 		Node theNode = myFirst;
 		StringBuilder linked = new StringBuilder();
-		while (theNode.info != null && theNode.next.info != null) {
+		while (theNode != null && theNode.next != null) {
 			linked.append(theNode.info);
 			theNode = theNode.next;
 		}
-		if(theNode.info != null) {
+		if(theNode != null) {
 			linked.append(theNode.info);
 		}
 		return linked.toString();
