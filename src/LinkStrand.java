@@ -9,9 +9,13 @@ public class LinkStrand implements IDnaStrand{
 	      	next = null;
 	   	}
 	}
-	   	private Node myFirst,myLast;
-	   	private long mySize;
-	   	private int myAppends;
+	
+	private Node myFirst,myLast;
+	private long mySize;
+	private int myAppends;
+	private int myIndex;
+	private int myLocalIndex;
+	private Node myCurrent;
 	
 	/**
 	 * Default Constructor that sends the string "" to the other Constructor
@@ -39,6 +43,10 @@ public class LinkStrand implements IDnaStrand{
 		myLast = myFirst;
 		mySize = source.length();
 		myAppends = 0;
+		myIndex = 0;
+		myLocalIndex = 0;
+		myCurrent = myFirst;
+		
 	}
 
 	@Override
@@ -68,18 +76,15 @@ public class LinkStrand implements IDnaStrand{
 
 	@Override
 	public char charAt(int index) {
-		int count = 0;
-		int dex = 0;
-		Node list = myFirst;
-		while (count != index) {
-			count++;
-			dex++;
-			if (dex >= list.info.length()) {
-				dex = 0;
-				list = list.next;
+		while (myIndex != index) {
+			myIndex++;
+			myLocalIndex++;
+			if (myLocalIndex >= myCurrent.info.length()) {
+				myLocalIndex = 0;
+				myCurrent = myCurrent.next;
 			}
 		}
-		return list.info.charAt(dex);
+		return myCurrent.info.charAt(myLocalIndex);
 	}
 	
 	@Override
