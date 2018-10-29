@@ -76,7 +76,10 @@ public class LinkStrand implements IDnaStrand{
 
 	@Override
 	public char charAt(int index) {
-		while (myIndex != index && myCurrent != null) {
+		if (myCurrent == null) {
+			throw new IndexOutOfBoundsException("Out of Bounds");
+		}
+		while (myIndex != index) {
 			myIndex++;
 			myLocalIndex++;
 			if (myLocalIndex >= myCurrent.info.length()) {
