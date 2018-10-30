@@ -82,12 +82,12 @@ public class LinkStrand implements IDnaStrand{
 		while (myIndex != index) {
 			myIndex++;
 			myLocalIndex++;
-			if(myCurrent == null) {
-				throw new IndexOutOfBoundsException("Out of Bounds");
-			}
 			if (myLocalIndex >= myCurrent.info.length()) {
 				myLocalIndex = 0;
 				myCurrent = myCurrent.next;
+			}
+			if(myCurrent == null) {
+				throw new IndexOutOfBoundsException("Out of Bounds");
 			}
 		}
 		return myCurrent.info.charAt(myLocalIndex);
