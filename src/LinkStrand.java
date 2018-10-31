@@ -65,8 +65,21 @@ public class LinkStrand implements IDnaStrand{
 
 	@Override
 	public IDnaStrand reverse() {
-		// TODO Auto-generated method stub
-		return null;
+		Node current = myFirst;
+		String theString = "";
+		Node next = myFirst;
+		Node prev = null;
+		while (current != null) {
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
+		}
+		while (prev != null) {
+			theString += prev.info.toString();
+			prev = prev.next;
+		}
+		return new LinkStrand(theString);
 	}
 
 	@Override
