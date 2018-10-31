@@ -79,7 +79,7 @@ public class LinkStrand implements IDnaStrand{
 			theString += copy.reverse().toString();
 			newNode = newNode.next;
 		}
-		return new LinkStrand(theString);
+		return new LinkStrand(theString.toString());
 	}
 	
 	/**
