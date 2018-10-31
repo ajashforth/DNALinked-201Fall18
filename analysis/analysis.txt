@@ -7,3 +7,91 @@ Questions here will come from the assignment
 writeup. Be sure to copy paste questions and 
 your explanations before you push to GitHub and
 do that before uploading to Gradescope
+
+1.) 
+dna length = 4,639,221
+cutting at enzyme gaattc
+-----
+Class	                splicee	      recomb	time	appends
+-----
+StringStrand:	            256	      4,800,471	0.399	1290
+StringStrand:	            512	      4,965,591	0.399	1290
+StringStrand:	          1,024	      5,295,831	0.418	1290
+StringStrand:	          2,048	      5,956,311	0.465	1290
+StringStrand:	          4,096	      7,277,271	0.595	1290
+StringStrand:	          8,192	      9,919,191	0.834	1290
+StringStrand:	         16,384	     15,203,031	1.306	1290
+StringStrand:	         32,768	     25,770,711	2.335	1290
+StringStrand:	         65,536	     46,906,071	5.030	1290
+StringStrand:	        131,072	     89,176,791	11.950	1290
+StringStrand:	        262,144	    173,718,231	22.846	1290
+StringStrand:	        524,288	    342,801,111	39.226	1290
+StringStrand:	      1,048,576	    680,966,871	76.039	1290
+Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+	at StringStrand.append(StringStrand.java:70)
+	at IDnaStrand.cutAndSplice(IDnaStrand.java:41)
+	at DNABenchmark.strandSpliceBenchmark(DNABenchmark.java:67)
+	at DNABenchmark.main(DNABenchmark.java:113)
+
+2.)
+dna length = 4,639,221
+cutting at enzyme gaattc
+-----
+Class	                splicee	      recomb	time	appends
+-----
+StringBuilderStrand:	            256	      4,800,471	0.030	1290
+StringBuilderStrand:	            512	      4,965,591	0.022	1290
+StringBuilderStrand:	          1,024	      5,295,831	0.012	1290
+StringBuilderStrand:	          2,048	      5,956,311	0.008	1290
+StringBuilderStrand:	          4,096	      7,277,271	0.007	1290
+StringBuilderStrand:	          8,192	      9,919,191	0.007	1290
+StringBuilderStrand:	         16,384	     15,203,031	0.011	1290
+StringBuilderStrand:	         32,768	     25,770,711	0.026	1290
+StringBuilderStrand:	         65,536	     46,906,071	0.037	1290
+StringBuilderStrand:	        131,072	     89,176,791	0.065	1290
+StringBuilderStrand:	        262,144	    173,718,231	0.173	1290
+StringBuilderStrand:	        524,288	    342,801,111	0.308	1290
+Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.util.Arrays.copyOf(Arrays.java:3744)
+	at java.base/java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:146)
+	at java.base/java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:512)
+	at java.base/java.lang.StringBuilder.append(StringBuilder.java:141)
+	at StringBuilderStrand.append(StringBuilderStrand.java:70)
+	at IDnaStrand.cutAndSplice(IDnaStrand.java:41)
+	at DNABenchmark.strandSpliceBenchmark(DNABenchmark.java:67)
+	at DNABenchmark.main(DNABenchmark.java:113)
+
+3.)
+dna length = 4,639,221
+cutting at enzyme gaattc
+-----
+Class	                splicee	      recomb	time	appends
+-----
+LinkStrand:	            256	      4,800,471	0.030	1290
+LinkStrand:	            512	      4,965,591	0.023	1290
+LinkStrand:	          1,024	      5,295,831	0.003	1290
+LinkStrand:	          2,048	      5,956,311	0.005	1290
+LinkStrand:	          4,096	      7,277,271	0.007	1290
+LinkStrand:	          8,192	      9,919,191	0.004	1290
+LinkStrand:	         16,384	     15,203,031	0.003	1290
+LinkStrand:	         32,768	     25,770,711	0.004	1290
+LinkStrand:	         65,536	     46,906,071	0.004	1290
+LinkStrand:	        131,072	     89,176,791	0.005	1290
+LinkStrand:	        262,144	    173,718,231	0.003	1290
+LinkStrand:	        524,288	    342,801,111	0.004	1290
+LinkStrand:	      1,048,576	    680,966,871	0.005	1290
+LinkStrand:	      2,097,152	  1,357,298,391	0.004	1290
+LinkStrand:	      4,194,304	  2,709,961,431	0.004	1290
+LinkStrand:	      8,388,608	  5,415,287,511	0.007	1290
+LinkStrand:	     16,777,216	 10,825,939,671	0.005	1290
+LinkStrand:	     33,554,432	 21,647,243,991	0.007	1290
+LinkStrand:	     67,108,864	 43,289,852,631	0.007	1290
+LinkStrand:	    134,217,728	 86,575,069,911	0.005	1290
+LinkStrand:	    268,435,456	173,145,504,471	0.006	1290
+LinkStrand:	    536,870,912	346,286,373,591	0.014	1290
+Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.util.Arrays.copyOf(Arrays.java:3744)
+	at java.base/java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:146)
+	at java.base/java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:512)
+	at java.base/java.lang.StringBuilder.append(StringBuilder.java:141)
+	at DNABenchmark.main(DNABenchmark.java:110)

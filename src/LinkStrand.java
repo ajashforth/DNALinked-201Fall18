@@ -1,6 +1,17 @@
+/**
+ * Efficient implementation of IDnaStrand. \ This
+ * implementation uses Nodes to create LinkStrands to represent genomic/DNA data.
+ * @author alecashforth
+ *
+ */
 
 public class LinkStrand implements IDnaStrand{
 
+	/**
+	 * This inner class allows other methods in the LinkStrand class to create
+	 * Nodes which are the main building blocks of LinkStrands
+	 *
+	 */
 	private class Node {
 		String info;
 	   	Node next;
@@ -10,6 +21,9 @@ public class LinkStrand implements IDnaStrand{
 	   	}
 	}
 	
+	/**
+	 * These are the instance variables needed for a LinkStrand object
+	 */
 	private Node myFirst,myLast;
 	private long mySize;
 	private int myAppends;
@@ -32,11 +46,17 @@ public class LinkStrand implements IDnaStrand{
 		initialize(s);
 	}
 	
+	/**
+	 * this method returns the size of "this" linkstrand
+	 */
 	@Override
 	public long size() {
 		return mySize;
 	}
 
+	/**
+	 * this method initializes all of the instance variables
+	 */
 	@Override
 	public void initialize(String source) {
 		myFirst = new Node(source);
@@ -49,11 +69,19 @@ public class LinkStrand implements IDnaStrand{
 		
 	}
 
+	/**
+	 * this method returns a linkstrand of the string "source"
+	 */
 	@Override
 	public IDnaStrand getInstance(String source) {
 		return new LinkStrand(source);
 	}
 
+	/**
+	 * this method adds a new string to a linkstrand by creating a new node and
+	 * having the last node of "this" linkstrand point to this node that has
+	 * the string as its info
+	 */
 	@Override
 	public IDnaStrand append(String dna) {
 		myLast.next = new Node(dna);
@@ -63,6 +91,10 @@ public class LinkStrand implements IDnaStrand{
 		return this;
 	}
 
+	/**
+	 * this method reverses the linkstrand so that the last character of the new strand
+	 * is the first character of the original strand
+	 */
 	@Override
 	public IDnaStrand reverse() {
 		Node thisNode = myFirst;
@@ -81,34 +113,19 @@ public class LinkStrand implements IDnaStrand{
 		}
 		return new LinkStrand(theString.toString());
 	}
-	
-	/**
-	 * public IDnaStrand reverse() {
-		Node current = myFirst;
-		String theString = "";
-		Node next = myFirst;
-		Node prev = null;
-		
-		while (current != null) {
-			next = current.next;
-			current.next = prev;
-			prev = current;
-			current = next;
-		}
-		while (prev != null) {
-			StringBuilder copy = new StringBuilder(prev.info);
-			theString += copy.reverse().toString();
-			prev = prev.next;
-		}
-		return new LinkStrand(theString);
-	}
-	 */
 
+	/**
+	 * this method finds the number of appends that have been used so far for this 
+	 * linkstrand
+	 */
 	@Override
 	public int getAppendCount() {
 		return myAppends;
 	}
 
+	/**
+	 * this method finds the character at a specific index of the linkstrand
+	 */
 	@Override
 	public char charAt(int index) {
 		if (index < 0 || index >= mySize) {
@@ -130,6 +147,9 @@ public class LinkStrand implements IDnaStrand{
 		return myCurrent.info.charAt(myLocalIndex);
 	}
 	
+	/**
+	 * This method converts the linkstrand into a string
+	 */
 	@Override
 	public String toString() {
 		if(myFirst == null) {
