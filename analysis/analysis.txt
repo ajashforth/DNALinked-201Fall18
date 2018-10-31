@@ -8,7 +8,12 @@ writeup. Be sure to copy paste questions and
 your explanations before you push to GitHub and
 do that before uploading to Gradescope
 
-1.) 
+1.) Yes, my benchmark timings are consistent with the explanation
+for cutAndSplice that the time needed is Ob(b^2*s). The number of 
+breaks isn't changing each time, but the b^2 makes the StringStrand 
+way take longer right off the gate, taking .399 secs compared to 
+.03 secs for StringBuilderStrand. The amount of time needed doubles 
+as S d(# of splicees doubles).
 dna length = 4,639,221
 cutting at enzyme gaattc
 -----
@@ -33,7 +38,12 @@ Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
 	at DNABenchmark.strandSpliceBenchmark(DNABenchmark.java:67)
 	at DNABenchmark.main(DNABenchmark.java:113)
 
-2.)
+2.) Yes, my benchmark timings are consistent with the explanation
+for cutAndSplice that the time needed for this method is O(bS). Towards,
+the end of the code, when the number of splicees doubles, the time needed
+approximately doubles (ex: with 262,144 splicees, the time taken is 0.173
+whereas when the number of splicees doubles, the time taken is .308,
+approximately double the time since b is doubled. (O(b*2S))
 dna length = 4,639,221
 cutting at enzyme gaattc
 -----

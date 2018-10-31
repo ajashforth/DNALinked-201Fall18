@@ -56,6 +56,8 @@ public class LinkStrand implements IDnaStrand{
 
 	/**
 	 * this method initializes all of the instance variables
+	 * 
+	 * @param source is the string that will turn into the linkstrand object
 	 */
 	@Override
 	public void initialize(String source) {
@@ -71,6 +73,8 @@ public class LinkStrand implements IDnaStrand{
 
 	/**
 	 * this method returns a linkstrand of the string "source"
+	 * 
+	 * @source is the string that will be turned into a linkstrand object
 	 */
 	@Override
 	public IDnaStrand getInstance(String source) {
@@ -81,6 +85,9 @@ public class LinkStrand implements IDnaStrand{
 	 * this method adds a new string to a linkstrand by creating a new node and
 	 * having the last node of "this" linkstrand point to this node that has
 	 * the string as its info
+	 * 
+	 * @dna is the string that will be turned into the info of a node to be added
+	 * to a linkstrand
 	 */
 	@Override
 	public IDnaStrand append(String dna) {
@@ -125,6 +132,9 @@ public class LinkStrand implements IDnaStrand{
 
 	/**
 	 * this method finds the character at a specific index of the linkstrand
+	 * 
+	 * @index is the integer spot where the method will go to that index of the 
+	 * linkstrand and find its character
 	 */
 	@Override
 	public char charAt(int index) {
